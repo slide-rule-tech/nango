@@ -1,0 +1,66 @@
+---
+title: eMoney Advisor - How do I link my account?
+sidebarTitle: eMoney Advisor
+---
+
+# Overview
+
+To authenticate with eMoney Advisor, you need:
+1. **API Base URL** - The eMoney API base URL for your environment.
+2. **Token Audience** - The JWT audience claim expected by eMoney.
+3. **API Client ID** - The client identifier provided by eMoney onboarding.
+4. **Private Key** - An RSA private key in PEM format used to sign JWTs.
+
+eMoney onboarding also requires submitting an X.509 public certificate signed by a trusted CA.
+
+### Prerequisites:
+
+- You must have eMoney API access approved by eMoney.
+
+### Instructions:
+
+#### Step 1: Get your eMoney API details
+
+1. Submit the eMoney contact form and request API access.
+2. Complete onboarding with the eMoney team.
+3. Collect the values they provide for:
+   - API Base URL
+   - Token Audience
+   - API Client ID
+
+#### Step 2: Generate your RSA private key
+
+Generate a 2048-bit RSA private key:
+
+```bash
+openssl genrsa -out emoney_auth.key 2048
+```
+
+Store this key securely and do not share it.
+
+#### Step 3: Generate and submit your X.509 certificate
+
+eMoney requires a public certificate signed by an external trusted CA.
+
+1. Generate a CSR from your private key:
+
+```bash
+openssl req -new -key emoney_auth.key -out emoney_auth.csr
+```
+
+2. Submit the CSR through the process provided by eMoney.
+3. Keep the signed certificate for your records and onboarding confirmations.
+
+#### Step 4: Enter credentials in the Connect UI
+
+Once you have your API details and private key:
+
+1. Open the eMoney Advisor connection form in Nango.
+2. Enter:
+   - **API Base URL**
+   - **Token Audience**
+   - **API Client ID**
+   - **Private Key** (PEM)
+3. Submit the form.
+
+You are now connected to eMoney Advisor.

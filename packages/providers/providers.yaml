@@ -5026,6 +5026,66 @@ emarsys-oauth:
     docs: https://nango.dev/docs/integrations/all/emarsys-oauth
     docs_connect: https://nango.dev/docs/integrations/all/emarsys-oauth/connect
 
+emoney-advisor:
+    display_name: eMoney Advisor
+    categories:
+        - other
+    auth_mode: JWT
+    signature:
+        protocol: RSA
+    token:
+        signing_key: ${credentials.privateKey}
+        expires_in_ms: 3600000
+        header:
+            alg: RS256
+            typ: JWT
+        payload:
+            iss: ${credentials.apiClientId}
+            sub: ${credentials.apiClientId}
+            aud: ${connectionConfig.tokenAudience}
+    proxy:
+        base_url: ${connectionConfig.apiBaseUrl}
+        headers:
+            accept: application/json
+            authorization: Bearer ${accessToken}
+        verification:
+            method: GET
+            endpoints:
+                - /clients
+    docs: https://nango.dev/docs/integrations/all/emoney-advisor
+    docs_connect: https://nango.dev/docs/integrations/all/emoney-advisor/connect
+    connection_config:
+        apiBaseUrl:
+            type: string
+            title: API Base URL
+            description: The base URL for your eMoney API environment.
+            format: uri
+            example: https://api.emoneyadvisor.com
+            order: 1
+            doc_section: '#step-1-get-your-emoney-api-details'
+        tokenAudience:
+            type: string
+            title: Token Audience
+            description: The JWT audience claim required by eMoney.
+            example: https://api.emoneyadvisor.com
+            order: 2
+            doc_section: '#step-1-get-your-emoney-api-details'
+    credentials:
+        apiClientId:
+            type: string
+            title: API Client ID
+            description: The API Client ID provided by eMoney during onboarding.
+            example: your-emoney-api-client-id
+            doc_section: '#step-1-get-your-emoney-api-details'
+        privateKey:
+            type: string
+            title: Private Key
+            description: The RSA private key (PEM format) used to sign JWTs.
+            example: -----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\n-----END PRIVATE KEY-----
+            pattern: '^-----BEGIN PRIVATE KEY-----\s*([A-Za-z0-9+/=\s]+)\s*-----END PRIVATE KEY-----$'
+            secret: true
+            doc_section: '#step-2-generate-your-rsa-private-key'
+
 employment-hero:
     display_name: Employment Hero
     categories:

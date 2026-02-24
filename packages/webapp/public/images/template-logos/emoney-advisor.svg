@@ -1,0 +1,6 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="eMoney Advisor">
+  <rect width="256" height="256" rx="32" fill="#1A2856"/>
+  <path d="M60 86h34c28 0 44 14 44 39s-16 39-44 39H60V86zm32 57c14 0 22-6 22-18s-8-18-22-18H82v36h10z" fill="#ffffff"/>
+  <circle cx="176" cy="128" r="34" fill="#4FA3FF"/>
+  <path d="M176 106v44M154 128h44" stroke="#1A2856" stroke-width="10" stroke-linecap="round"/>
+</svg>

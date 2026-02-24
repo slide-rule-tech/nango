@@ -1,0 +1,49 @@
+---
+title: eMoney Advisor
+sidebarTitle: eMoney Advisor
+---
+
+import Overview from "/snippets/overview.mdx"
+import PreBuiltTooling from "/snippets/generated/emoney-advisor/PreBuiltTooling.mdx"
+import PreBuiltUseCases from "/snippets/generated/emoney-advisor/PreBuiltUseCases.mdx"
+
+<Overview />
+<PreBuiltTooling />
+<PreBuiltUseCases />
+
+## Access requirements
+| Pre-Requisites | Status | Comment|
+| - | - | - |
+| Paid dev account | ✅ | Requires eMoney API onboarding |
+| Paid test account | ✅ | eMoney recommends separate test and production certs |
+| Partnership | ✅ | Access is approved by eMoney team |
+| App review | ❓ | Confirm during onboarding |
+| Security audit | ❓ | Confirm during onboarding |
+
+## Setup guide
+
+Use the connect guide linked below for credential and certificate setup.
+
+<Tip>Need help getting started? Get help in the [community](https://nango.dev/slack).</Tip>
+
+<Note>Contribute improvements to the setup guide by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/emoney-advisor.mdx)</Note>
+
+## Useful links
+
+- [eMoney Developer Portal](https://developer.emoneyadvisor.com/apis)
+- [Planning APIs (Basic endpoints)](https://developer.emoneyadvisor.com/resources/docs/products-planning#basic-endpoints)
+- [eMoney FAQ](https://developer.emoneyadvisor.com/faq)
+
+<Note>Contribute useful links by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/emoney-advisor.mdx)</Note>
+
+## API gotchas
+
+- eMoney uses certificate-based JWT auth; access is not fully self-service.
+- Rate limit is 60 concurrent calls (HTTP 429 on limit exceeded).
+- Most planning endpoints are polled (no webhook change feed for ingestion use cases).
+
+<Note>Contribute API gotchas by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/emoney-advisor.mdx)</Note>
+
+<Card title="Connect to eMoney Advisor" icon="link" href="/integrations/all/emoney-advisor/connect" horizontal>
+  Guide to connect to eMoney Advisor using Connect UI
+</Card>
